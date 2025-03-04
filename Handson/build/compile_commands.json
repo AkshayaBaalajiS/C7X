@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/akshayabaalaji-s/C7X/Handson/build",
+  "command": "/usr/bin/g++ -I/home/akshayabaalaji-s/C7X/TI_C7X_DSP_TRAINING/ti-cgt-c7000_4.1.0.LTS/host_emulation/include/C7100 -I/home/akshayabaalaji-s/C7X/C7X_COPY/AA_TI_C7X_DSP_TRAINING_00.05/cgt-c7x_1.2/host_emulation/include -g -std=gnu++14 -o CMakeFiles/app.dir/DataTypes_Prac/fir_calc.cpp.o -c /home/akshayabaalaji-s/C7X/Handson/DataTypes_Prac/fir_calc.cpp",
+  "file": "/home/akshayabaalaji-s/C7X/Handson/DataTypes_Prac/fir_calc.cpp"
+}
+]
