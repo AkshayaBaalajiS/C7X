@@ -1,3 +1,0 @@
-/home/akshayabaalaji-s/C7X/Handson/Functions/build/CMakeFiles/app.dir
-/home/akshayabaalaji-s/C7X/Handson/Functions/build/CMakeFiles/edit_cache.dir
-/home/akshayabaalaji-s/C7X/Handson/Functions/build/CMakeFiles/rebuild_cache.dir

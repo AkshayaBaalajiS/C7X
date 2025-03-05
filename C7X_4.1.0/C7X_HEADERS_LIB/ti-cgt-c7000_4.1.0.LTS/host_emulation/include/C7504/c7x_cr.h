@@ -1,0 +1,1102 @@
+/*****************************************************************************/
+/* C7X_CR.H                                                                  */
+/*                                                                           */
+/* Copyright (c) 2017 Texas Instruments Incorporated                         */
+/* http://www.ti.com/                                                        */
+/*                                                                           */
+/*  Redistribution and  use in source  and binary forms, with  or without    */
+/*  modification,  are permitted provided  that the  following conditions    */
+/*  are met:                                                                 */
+/*                                                                           */
+/*     Redistributions  of source  code must  retain the  above copyright    */
+/*     notice, this list of conditions and the following disclaimer.         */
+/*                                                                           */
+/*     Redistributions in binary form  must reproduce the above copyright    */
+/*     notice, this  list of conditions  and the following  disclaimer in    */
+/*     the  documentation  and/or   other  materials  provided  with  the    */
+/*     distribution.                                                         */
+/*                                                                           */
+/*     Neither the  name of Texas Instruments Incorporated  nor the names    */
+/*     of its  contributors may  be used to  endorse or  promote products    */
+/*     derived  from   this  software  without   specific  prior  written    */
+/*     permission.                                                           */
+/*                                                                           */
+/*  THIS SOFTWARE  IS PROVIDED BY THE COPYRIGHT  HOLDERS AND CONTRIBUTORS    */
+/*  "AS IS"  AND ANY  EXPRESS OR IMPLIED  WARRANTIES, INCLUDING,  BUT NOT    */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR    */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT    */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,    */
+/*  SPECIAL,  EXEMPLARY,  OR CONSEQUENTIAL  DAMAGES  (INCLUDING, BUT  NOT    */
+/*  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,    */
+/*  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY    */
+/*  THEORY OF  LIABILITY, WHETHER IN CONTRACT, STRICT  LIABILITY, OR TORT    */
+/*  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE    */
+/*  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.     */
+/*                                                                           */
+/*****************************************************************************/
+
+#ifndef C7X_H_INCLUDE
+#error "This file can only be included by parent header c7x.h"
+#endif
+
+#ifndef C7X_CR_H_
+#define C7X_CR_H_
+
+/*****************************************************************************/
+/* The following is a list of CPU control registers available on C7000.      */
+/* NOTE: Some reset values may not be exact depending on external factors    */
+/*       such as silicon version and configuration.                          */
+/*                                                                           */
+/* The CPU control register may be read and written through normal           */
+/* assignments where permissions allow. To read or write a specific index    */
+/* of a CPU control register, use the following APIs:                        */
+/*                                                                           */
+/*   unsigned long __get_indexed(__CR_NAME, unsigned int index);             */
+/*   void __set_indexed(__CR_NAME, unsigned int index, unsigned long val);   */
+/*                                                                           */
+/*****************************************************************************/
+
+#include <ti_he_impl/control_reg.h>
+
+/******************************************************************************/
+/* CR: CPUID                                                                  */
+/* DESCRIPTION: CPU ID register                                               */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x60C00000                                            */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RO                                                  */
+/*     Non-Secure Debug:  RO                                                  */
+/*     Secure Supervisor: RO                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,0,0xFFFFFFFFFFFFFFFF,0x0> __CPUID;
+
+#if defined(__C7100__) || defined(__C7120__)
+/******************************************************************************/
+/* CR: PMR                                                                    */
+/* DESCRIPTION: Power Management register, not functional                     */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RO                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x3F> __PMR;
+#endif
+
+/******************************************************************************/
+/* CR: DNUM                                                                   */
+/* DESCRIPTION: DSP core number register                                      */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RO                                                  */
+/*     Non-Secure Debug:  RO                                                  */
+/*     Secure Supervisor: RO                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,0,0xFFFFFFFFFFFFFFFF,0x0> __DNUM;
+
+/******************************************************************************/
+/* CR: TSC                                                                    */
+/* DESCRIPTION: Time-stamp counter register                                   */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RO                                                  */
+/*     Non-Secure Debug:  RO                                                  */
+/*     Secure Supervisor: RO                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,0,0xFFFFFFFFFFFFFFFF,0x0> __TSC;
+
+/******************************************************************************/
+/* CR: TSR                                                                    */
+/* DESCRIPTION: Task state register                                           */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x100000000101FF05                                    */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RO                                                  */
+/*     Non-Secure Debug:  RO                                                  */
+/*     Secure Supervisor: RO                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,0,0xFFFFFFFFFFFFFFFF,0x0> __TSR;
+
+/******************************************************************************/
+/* CR: RP                                                                     */
+/* DESCRIPTION: Return pointer register                                       */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFD> __RP;
+
+/******************************************************************************/
+/* CR: BPCR                                                                   */
+/* DESCRIPTION: Branch Predictor Control Register                             */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x1> __BPCR;
+
+/******************************************************************************/
+/* CR: FPCR                                                                   */
+/* DESCRIPTION: Floating-point  control register                              */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x10                                                  */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x117> __FPCR;
+
+/******************************************************************************/
+/* CR: FSR                                                                    */
+/* DESCRIPTION: Flag status register                                          */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFF> __FSR;
+
+#if defined(__C7100__) || defined(__C7120__)
+/******************************************************************************/
+/* CR: ECLMR                                                                  */
+/* DESCRIPTION: Event Claim Register                                          */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0xFFFFFFFFFFFFFFFF                                    */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RO                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFF> __ECLMR;
+#endif
+
+/******************************************************************************/
+/* CR: EASGR                                                                  */
+/* DESCRIPTION: Event Assign Register                                         */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFF> __EASGR;
+
+/******************************************************************************/
+/* CR: EPRI                                                                   */
+/* DESCRIPTION: Event Priority Register Event priority Register               */
+/* INDEX RANGE: [0,63]                                                        */
+/* GENERAL RESET VALUE: 0xE0                                                  */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<64,1,1,0xFFFFFFFFFFFFFFFF,0xE0> __EPRI;
+
+/******************************************************************************/
+/* CR: EER                                                                    */
+/* DESCRIPTION: Event Enable Register                                         */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RO                                                  */
+/*     Non-Secure Debug:  RO                                                  */
+/*     Secure Supervisor: RO                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,0,0xFFFFFFFFFFFFFFFF,0x0> __EER;
+
+/******************************************************************************/
+/* CR: EESET                                                                  */
+/* DESCRIPTION: Event Enable Set  Register                                    */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      WO                                                  */
+/*     Non-Secure Debug:  WO                                                  */
+/*     Secure Supervisor: WO                                                  */
+/*     Supervisor:        WO                                                  */
+/*     Guest Supervisor:  WO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,0,1,0x0,0xFFFFFFFFFFFFFFFF> __EESET;
+
+/******************************************************************************/
+/* CR: EECLR                                                                  */
+/* DESCRIPTION: Event Enable Clear Register                                   */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      WO                                                  */
+/*     Non-Secure Debug:  WO                                                  */
+/*     Secure Supervisor: WO                                                  */
+/*     Supervisor:        WO                                                  */
+/*     Guest Supervisor:  WO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,0,1,0x0,0xFFFFFFFFFFFFFFFF> __EECLR;
+
+/******************************************************************************/
+/* CR: DEPR                                                                   */
+/* DESCRIPTION: Debug Event Priority Register                                 */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RO                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,0,0xFFFFFFFFFFFFFFFF,0xE0> __DEPR;
+
+/******************************************************************************/
+/* CR: EFR                                                                    */
+/* DESCRIPTION: Event Flag Register                                           */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RO                                                  */
+/*     Non-Secure Debug:  RO                                                  */
+/*     Secure Supervisor: RO                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,0,0xFFFFFFFFFFFFFFFF,0x0> __EFR;
+
+/******************************************************************************/
+/* CR: EFSET                                                                  */
+/* DESCRIPTION: Event Flag Set  Register                                      */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      WO                                                  */
+/*     Non-Secure Debug:  WO                                                  */
+/*     Secure Supervisor: WO                                                  */
+/*     Supervisor:        WO                                                  */
+/*     Guest Supervisor:  WO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,0,1,0x0,0xFFFFFFFFFFFFFFFF> __EFSET;
+
+/******************************************************************************/
+/* CR: EFCLR                                                                  */
+/* DESCRIPTION: Event Flag Clear Register                                     */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      WO                                                  */
+/*     Non-Secure Debug:  WO                                                  */
+/*     Secure Supervisor: WO                                                  */
+/*     Supervisor:        WO                                                  */
+/*     Guest Supervisor:  WO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,0,1,0x0,0xFFFFFFFFFFFFFFFF> __EFCLR;
+
+/******************************************************************************/
+/* CR: IESET                                                                  */
+/* DESCRIPTION: Internal Exception Event Set Register                         */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFF> __IESET;
+
+#if defined(__C7100__) || defined(__C7120__)
+/******************************************************************************/
+/* CR: ESTP_SS                                                                */
+/* DESCRIPTION: Event Service Table Pointer Register, Secure Supervisor       */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RO                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFF> __ESTP_SS;
+#endif
+
+/******************************************************************************/
+/* CR: ESTP_S                                                                 */
+/* DESCRIPTION: Event Service Table Pointer Register, Supervisor              */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFF> __ESTP_S;
+
+/******************************************************************************/
+/* CR: ESTP_GS                                                                */
+/* DESCRIPTION: Event Service Table Pointer Register, Guest Supervisor        */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFF> __ESTP_GS;
+
+/******************************************************************************/
+/* CR: EDR                                                                    */
+/* DESCRIPTION: Event Dropped Register                                        */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RO                                                  */
+/*     Non-Secure Debug:  RO                                                  */
+/*     Secure Supervisor: RO                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,0,0xFFFFFFFFFFFFFFFF,0x0> __EDR;
+
+#if defined(__C7100__) || defined(__C7120__)
+/******************************************************************************/
+/* CR: ECSP_SS                                                                */
+/* DESCRIPTION: Event Context Save Pointer, Secure Supervisor                 */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RO                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFE000> __ECSP_SS;
+#endif
+
+/******************************************************************************/
+/* CR: ECSP_S                                                                 */
+/* DESCRIPTION: Event Context Save Pointer, Supervisor                        */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFE000> __ECSP_S;
+
+/******************************************************************************/
+/* CR: ECSP_GS                                                                */
+/* DESCRIPTION: Event Context Save Pointer, Guest Supervisor                  */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFE000> __ECSP_GS;
+
+/******************************************************************************/
+/* CR: TCSP                                                                   */
+/* DESCRIPTION: Task Context Save Pointer                                     */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFE000> __TCSP;
+
+#if defined(__C7100__) || defined(__C7120__)
+/******************************************************************************/
+/* CR: RXMR_SS                                                                */
+/* DESCRIPTION: Returning Execution Mode Register, Secure Supervisor          */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RO                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x70000000F> __RXMR_SS;
+#endif
+
+/******************************************************************************/
+/* CR: RXMR_S                                                                 */
+/* DESCRIPTION: Returning Execution Mode Register, Supervisor                 */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x70000000F> __RXMR_S;
+
+/******************************************************************************/
+/* CR: AHPEE                                                                  */
+/* DESCRIPTION: Highest Priority Enabled Event, Currently in service          */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RO                                                  */
+/*     Non-Secure Debug:  RO                                                  */
+/*     Secure Supervisor: RO                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,0,0xFFFFFFFFFFFFFFFF,0x0> __AHPEE;
+
+/******************************************************************************/
+/* CR: PHPEE                                                                  */
+/* DESCRIPTION: Pending HPEE                                                  */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RO                                                  */
+/*     Non-Secure Debug:  RO                                                  */
+/*     Secure Supervisor: RO                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,0,0xFFFFFFFFFFFFFFFF,0x0> __PHPEE;
+
+/******************************************************************************/
+/* CR: IPE                                                                    */
+/* DESCRIPTION: Inter-processor Events Register                               */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      WO                                                  */
+/*     Non-Secure Debug:  WO                                                  */
+/*     Secure Supervisor: WO                                                  */
+/*     Supervisor:        WO                                                  */
+/*     Guest Supervisor:  WO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,0,1,0xFFFFFFFFFFFF0000,0xFFFF> __IPE;
+
+/******************************************************************************/
+/* CR: IERR                                                                   */
+/* DESCRIPTION: Internal exception report register                            */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFF> __IERR;
+
+/******************************************************************************/
+/* CR: IEAR                                                                   */
+/* DESCRIPTION: Internal Exception Address Register                           */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFF> __IEAR;
+
+/******************************************************************************/
+/* CR: IESR                                                                   */
+/* DESCRIPTION: Internal exception Status Register                            */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFF> __IESR;
+
+/******************************************************************************/
+/* CR: IEDR                                                                   */
+/* DESCRIPTION: Internal Exception Data Register                              */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFF> __IEDR;
+
+/******************************************************************************/
+/* CR: TCR                                                                    */
+/* DESCRIPTION: Test Count register                                           */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFF> __TCR;
+
+/******************************************************************************/
+/* CR: TCCR                                                                   */
+/* DESCRIPTION: Test Count Config register                                    */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x13F3F> __TCCR;
+
+#if defined(__C7100__) || defined(__C7120__)
+/******************************************************************************/
+/* CR: GMER                                                                   */
+/* DESCRIPTION: Guest Mode Enable Register                                    */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x1> __GMER;
+#endif
+
+/******************************************************************************/
+/* CR: UMER                                                                   */
+/* DESCRIPTION: User Mask Enable Register                                     */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x1> __UMER;
+
+/******************************************************************************/
+/* CR: SPBR                                                                   */
+/* DESCRIPTION: Stack pointer boundary Register                               */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFF> __SPBR;
+
+#if defined(__C7100__) || defined(__C7120__)
+/******************************************************************************/
+/* CR: LTBR0                                                                  */
+/* DESCRIPTION: Lookup Table Base Address  register 0                         */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFF80> __LTBR0;
+#endif
+
+#if defined(__C7100__) || defined(__C7120__)
+/******************************************************************************/
+/* CR: LTBR1                                                                  */
+/* DESCRIPTION: Lookup Table Base Address  register 1                         */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFF80> __LTBR1;
+#endif
+
+#if defined(__C7100__) || defined(__C7120__)
+/******************************************************************************/
+/* CR: LTBR2                                                                  */
+/* DESCRIPTION: Lookup Table Base Address  register 2                         */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFF80> __LTBR2;
+#endif
+
+#if defined(__C7100__) || defined(__C7120__)
+/******************************************************************************/
+/* CR: LTBR3                                                                  */
+/* DESCRIPTION: Lookup Table Base Address register 3                          */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFF80> __LTBR3;
+#endif
+
+#if defined(__C7100__) || defined(__C7120__)
+/******************************************************************************/
+/* CR: LTCR0                                                                  */
+/* DESCRIPTION: Lookup Table configuration register 0                         */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x13FF3FFF> __LTCR0;
+#endif
+
+#if defined(__C7100__) || defined(__C7120__)
+/******************************************************************************/
+/* CR: LTCR1                                                                  */
+/* DESCRIPTION: Lookup Table configuration register 1                         */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x13FF3FFF> __LTCR1;
+#endif
+
+#if defined(__C7100__) || defined(__C7120__)
+/******************************************************************************/
+/* CR: LTCR2                                                                  */
+/* DESCRIPTION: Lookup Table configuration register 2                         */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x13FF3FFF> __LTCR2;
+#endif
+
+#if defined(__C7100__) || defined(__C7120__)
+/******************************************************************************/
+/* CR: LTCR3                                                                  */
+/* DESCRIPTION: Lookup Table configuration register 3                         */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x13FF3FFF> __LTCR3;
+#endif
+
+#if defined(__C7100__) || defined(__C7120__)
+/******************************************************************************/
+/* CR: LTER                                                                   */
+/* DESCRIPTION: Lookup Table Enable register                                  */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x3333> __LTER;
+#endif
+
+/******************************************************************************/
+/* CR: DBGCTXT                                                                */
+/* DESCRIPTION: Debug Context (Overlay) Register                              */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFF> __DBGCTXT;
+
+/******************************************************************************/
+/* CR: GPLY                                                                   */
+/* DESCRIPTION: Galois Polynomial Register                                    */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFF> __GPLY;
+
+/******************************************************************************/
+/* CR: GFPGFR                                                                 */
+/* DESCRIPTION: Galois Field Polynomial Generator Function Register           */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x700001D                                             */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x70000FF> __GFPGFR;
+
+/******************************************************************************/
+/* CR: GTSC                                                                   */
+/* DESCRIPTION: Global Time Stamp Counter                                     */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RO                                                  */
+/*     Non-Secure Debug:  RO                                                  */
+/*     Secure Supervisor: RO                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,0,0xFFFFFFFFFFFFFFFF,0x0> __GTSC;
+
+/******************************************************************************/
+/* CR: STSC                                                                   */
+/* DESCRIPTION: Shadow Time Stamp Counter                                     */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RO                                                  */
+/*     Non-Secure Debug:  RO                                                  */
+/*     Secure Supervisor: RO                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RO                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RO                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,0,0xFFFFFFFFFFFFFFFF,0x0> __STSC;
+
+/******************************************************************************/
+/* CR: UFCMR                                                                  */
+/* DESCRIPTION: User Flag Clear Mask Register                                 */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFF> __UFCMR;
+
+#if defined(__C7524__)
+/******************************************************************************/
+/* CR: ILTER                                                                  */
+/* DESCRIPTION: Internal Lookup Table Enable register                         */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RO                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RO                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RO                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x3> __ILTER;
+#endif
+
+#if defined(__C7524__)
+/******************************************************************************/
+/* CR: HWACTRL                                                                */
+/* DESCRIPTION: MMA control register                                          */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x1013F> __HWACTRL;
+#endif
+
+#if defined(__C7524__)
+/******************************************************************************/
+/* CR: ILTCR                                                                  */
+/* DESCRIPTION: Internal Lookup Table Control register                        */
+/* INDEX RANGE: [0,0] (not indexed)                                           */
+/* GENERAL RESET VALUE: 0x0                                                   */
+/* PERMISSIONS (N/A not shown):                                               */
+/*     Secure Debug:      RW                                                  */
+/*     Non-Secure Debug:  RW                                                  */
+/*     Secure Supervisor: RW                                                  */
+/*     Secure User:       RW                                                  */
+/*     Supervisor:        RW                                                  */
+/*     User:              RW                                                  */
+/*     Guest Supervisor:  RW                                                  */
+/*     Guest User:        RW                                                  */
+/******************************************************************************/
+extern _c70_he_detail::control_reg<1,1,1,0xFFFFFFFFFFFFFFFF,0x101> __ILTCR;
+#endif
+
+#endif /* C7X_CR_H_ */

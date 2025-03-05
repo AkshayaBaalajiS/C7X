@@ -1,0 +1,104 @@
+{
+      "softwareName": "C7000-CGT-1-2",
+      "softwareVersion": "1.2.0",
+      "technicalOwner": "a0322263",
+      "publisher": "a0322263",
+      "publisherProductGroup": "C7000 CGT",
+      "status": "published",
+      "buildDate": "1568127727",
+      "supportContactURL": "http://e2e.ti.com/support/development_tools/compiler/",
+      "supportContactURLText": "Please click here for support",
+      "releaseNotesIdentifier": "http://software-dl.ti.com/codegen/esd/cgt_public_sw/C7000/1.2.0/readme.txt",
+      "legacyVersionURL": null,
+      "legacyVersionNumber": null,
+      "legacyVersionDate": null,
+      "releaseFSLocation": "/www-dl/server-root/codegen/esd/cgt_public_sw/C7000/1.2.0/",
+      "releaseInformation": [
+        {
+          "releaseInfoType": "General",
+          "content": "This is a maintenance release update for the C7000 Code Generation Tools (CGT). The C7000 CGT provides software development tools including the compiler, assembler, and linker, among others, which can be used to develop applications with C/C++ source code for loading and running on C7000 core processors."
+        }, {
+		"releaseInfoType": "Whats New",
+		"content": "<p>This is the first public release of C7000 CGT C/C++ Compiler Tools.</p>The C7000 CGT v1.2 is a NEW compiler and generates code for the C7100 DSP and MMA.</p>"
+	} 
+      ],
+      "assets": [
+        {
+          "assetDisplayTitle": "Windows Installer for C7000 CGT",
+          "assetVersion": "1.2.0",
+          "assetDescription": "Windows Installer for C7000 CGT",
+          "assetURLLocation": "http://software-dl.ti.com/codegen/esd/cgt_public_sw/C7000/1.2.0/ti_cgt_c7000_1.2.0.STS_windows_installer.exe",
+          "mimeType": "application",
+          "fileSize": 31944936,
+          "assetType": "Software",
+          "assetTypeOther": null,
+          "SRASApprovalID": "SRAS00006565",
+          "displayConfig":[
+           {
+             "configKey": "divider.title",
+             "configValue": "C7000 CGT Installers"
+           }
+           ]
+        },
+        {
+          "assetDisplayTitle": "Linux Installer for C7000 CGT",
+          "assetVersion": "1.2.0",
+          "assetDescription": "Linux Installer for C7000 CGT",
+          "assetURLLocation": "http://software-dl.ti.com/codegen/esd/cgt_public_sw/C7000/1.2.0/ti_cgt_c7000_1.2.0.STS_linux_installer_x86.bin",
+          "mimeType": "application",
+          "fileSize": 41160218,
+          "assetType": "Software",
+          "assetTypeOther": null,
+          "SRASApprovalID": "SRAS00006565"
+        },
+        {
+          "assetDisplayTitle": "C7000 Compiler User Guide",
+          "assetVersion": "1.x.x",
+          "assetDescription": "C7000 Compiler User Guide",
+          "assetURLLocation": "http://software-dl.ti.com/docs/esd/SPRUI04B/index.html",
+          "fileSize": 0,
+          "assetType": "Documentation",
+          "assetTypeOther": null,
+          "SRASApprovalID": "NONE",
+          "displayConfig":[
+           {
+             "configKey": "divider.title",
+             "configValue": "C7000 CGT Documentation"
+           }
+           ]
+        },
+        {
+          "assetDisplayTitle": "C7000 CGT - Open Defects",
+          "assetVersion": "1.2.0",
+          "assetDescription": "C7000 CGT - Open Defects",
+          "assetURLLocation": "http://software-dl.ti.com/codegen/esd/cgt_public_sw/C7000/1.2.0/Open_defects.html",
+          "fileSize": 0,
+          "assetType": "Documentation",
+          "assetTypeOther": null,
+          "SRASApprovalID": "NONE",
+          "displayConfig":[
+           {
+             "configKey": "divider.title",
+             "configValue": "C7000 CGT Defect History"
+           }
+           ]
+        },
+        {
+          "assetDisplayTitle": "C7000 CGT - Closed Defects",
+          "assetVersion": "1.2.0",
+          "assetDescription": "C7000 CGT - Closed Defects",
+          "assetURLLocation": "http://software-dl.ti.com/codegen/esd/cgt_public_sw/C7000/1.2.0/Closed_defects.html",
+
+          "fileSize": 0,
+          "assetType": "Documentation",
+          "assetTypeOther": null,
+          "SRASApprovalID": "NONE"
+        }
+      ],
+      "softwareSupportedEntities": [
+        {
+          "supportedEntityType": "platform",
+          "supportedEntityData": "C7000"
+        }
+      ]
+   }

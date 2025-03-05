@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/app.dir/multi_dimension_transpose.cpp.o -o app  /home/akshayabaalaji-s/C7X/C7X_COPY/AA_TI_C7X_DSP_TRAINING_00.05/cgt-c7x_1.2/host_emulation/libc70-host-emulation.a 

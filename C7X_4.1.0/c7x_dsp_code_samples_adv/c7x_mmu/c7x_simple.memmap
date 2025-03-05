@@ -1,0 +1,19 @@
+/*
+* module name       : c7x_mmu
+*
+* module descripton : MMU page table, cache enable operations
+*
+* Copyright (C) 2015-2019 Texas Instruments Incorporated - http://www.ti.com/
+*
+* ALL RIGHTS RESERVED
+*/
+ATTR 0 Device_nGnRnE
+ATTR 1 OuterWTnWA__InnerWTnWA
+ATTR 2 OuterNC__InnerNC
+ATTR 3 OuterWBWA__InnerWBWA
+ATTR 4 OuterWBnWA__InnerWBnWA
+ATTR 5 OuterWBRWA__InnerWBRWA
+ATTR 6 OuterWBWAnT__InnerWBWAnT
+ATTR 7 OuterWBnWAnT__InnerWBnWAnT
+
+6080_0000 609F_FFFF 0:6080_0000 2MB ATTRIDX5 OuterShareable RW EL1 S  X  X  A  G NOFAULT # MSMC Address Space
