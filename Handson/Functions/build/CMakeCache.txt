@@ -219,7 +219,7 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //No help, variable specified on the command line.
-FILE:UNINITIALIZED=../stov_ptr_2.cpp
+FILE:UNINITIALIZED=../_SE0_OPEN.cpp
 
 
 ########################
